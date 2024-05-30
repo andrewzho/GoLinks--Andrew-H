@@ -1,9 +1,5 @@
-
 // GitHub user repositories API URL
 const GITHUB_API_URL = 'https://api.github.com/users';
-
-// username
-const username = 'seantomburke'; 
 
 // fetch repositories for a given username with pagination
 async function fetchUserRepositories(username, page = 1, perPage = 100) {
@@ -48,6 +44,24 @@ async function fetchAllRepositories(username) {
 
   return allRepos;
 }
+
+// Function to prompt the user for their GitHub username until a valid one is provided
+function getUsername() {
+    let username = '';
+    while (!username) {
+      username = prompt("Please enter your GitHub username:");
+      if (!username) {
+        alert("Username cannot be empty. Please enter a valid GitHub username.");
+      }
+    }
+    return username;
+  }
+
+// // gets username
+// const username = getUsername();
+
+// username
+const username = 'seantomburke'; 
 
 // Call the function and log the results
 let forks = 0;
